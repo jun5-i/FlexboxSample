@@ -1,0 +1,286 @@
+<div class="mdl-grid ext-mdl-grid--demo">
+    <div class="ext-mdl-card mdl-cell mdl-cell--12-col mdl-shadow--2dp mdl-cell">
+        <div class="card-content-container">
+            <!--controls-container-->
+            <div id="controls-container" class="controls-container">
+                <!--flex-container-height-->
+                <div class="controls-container__row">
+                    <label class="controls__label mdl-cell--5-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">flex container height</label>
+                    <div class="controls__control mdl-cell--7-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
+                        <label id="height-auto" class="mdl-checkbox mdl-js-checkbox checkbox-label" for="height-auto-checkbox">
+                            <input type="checkbox" id="height-auto-checkbox" class="mdl-checkbox__input auto-checkbox" data-target="height" checked="" />
+                            <span class="mdl-checkbox__label">auto</span>
+                        </label>
+                        <label>
+                            <input type="range" id="height-range" class="mdl-slider mdl-js-slider range-control" data-target="height" value="67" min="40" max="500" step="10" />
+                        </label>
+                    </div>
+                </div>
+                <!--flex-container-width-->
+                <div class="controls-container__row">
+                    <label class="controls__label mdl-cell--5-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">flex container width</label>
+                    <div class="controls__control mdl-cell--7-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
+                        <label id="width-auto" class="mdl-checkbox mdl-js-checkbox checkbox-label" for="width-auto-checkbox">
+                            <input type="checkbox" id="width-auto-checkbox" class="mdl-checkbox__input auto-checkbox" data-target="width" checked="" />
+                            <span class="mdl-checkbox__label">auto</span>
+                        </label>
+                        <label>
+                            <input type="range" id="width-range" class="mdl-slider mdl-js-slider range-control" data-target="width" value="750" min="60" max="850" step="10" />
+                        </label>
+                    </div>
+                </div>
+                <!--flex-direction-->
+                <div class="controls-container__row">
+                    <label class="controls__label mdl-cell--5-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">flex-direction</label>
+                    <div class="controls__control mdl-cell--7-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
+                        <label class="mdl-radio mdl-js-radio direction-radio" for="direxion-row-radio">
+                            <input type="radio" id="direxion-row-radio" name="flex-direction" value="direction-row" class="mdl-radio__button" checked="" />
+                            <span class="mdl-radio__label">row</span>
+                        </label>
+                        <label class="mdl-radio mdl-js-radio" for="direxion-column-radio">
+                            <input type="radio" id="direxion-column-radio" name="flex-direction" value="direction-column" class="mdl-radio__button" />
+                            <span class="mdl-radio__label">column</span>
+                        </label>
+                    </div>
+                </div>
+                <!--flex-wrap-->
+                <div class="controls-container__row">
+                    <label class="controls__label mdl-cell--5-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">flex-wrap</label>
+                    <div class="controls__control mdl-cell--7-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
+                        <label>
+                            <div class="orig-select-field">
+                                <select id="flex-wrap-select" class="orig-select-field__select prop-select" data-target="flex-wrap">
+                                    <option>nowrap</option>
+                                    <option>wrap</option>
+                                    <option>wrap-reverse</option>
+                                </select>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                <!--justify-content-->
+                <div class="controls-container__row">
+                    <label class="controls__label mdl-cell--5-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">justify-content</label>
+                    <div class="controls__control mdl-cell--7-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
+                        <label>
+                            <div class="orig-select-field">
+                                <select id="justify-content-select" class="orig-select-field__select prop-select" data-target="justify-content">
+                                    <option>flex-start</option>
+                                    <option>flex-end</option>
+                                    <option>center</option>
+                                    <option>space-between</option>
+                                    <option>space-around</option>
+                                </select>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                <!--align-items-->
+                <div class="controls-container__row">
+                    <label class="controls__label mdl-cell--5-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">align-items</label>
+                    <div class="controls__control mdl-cell--7-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
+                        <label>
+                            <div class="orig-select-field">
+                                <select id="align-items-select" class="orig-select-field__select prop-select" data-target="align-items">
+                                    <option>stretch</option>
+                                    <option>flex-start</option>
+                                    <option>flex-end</option>
+                                    <option>center</option>
+                                    <option>baseline</option>
+                                </select>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                <!--align-content-->
+                <div class="controls-container__row">
+                    <label class="controls__label mdl-cell--5-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">align-content</label>
+                    <div class="controls__control mdl-cell--7-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
+                        <label>
+                            <div class="orig-select-field">
+                                <select id="align-content-select" class="orig-select-field__select prop-select" data-target="align-content">
+                                    <option>stretch</option>
+                                    <option>flex-start</option>
+                                    <option>flex-end</option>
+                                    <option>center</option>
+                                    <option>space-between</option>
+                                    <option>space-around</option>
+                                </select>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                <!--flex-->
+                <div class="controls-container__row">
+                    <label class="controls__label mdl-cell--5-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">flex</label>
+                    <div class="controls__control mdl-cell--7-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
+                        <div class="control__brock">
+                            <label class="controls__label controls__label--narrow">-grow</label>
+                            <input type="text" data-target="flex-grow" placeholder="0" class="flex-val-textbox" />
+                        </div>
+                        <div class="control__brock">
+                            <label class="controls__label controls__label--narrow">-shrink</label>
+                            <input type="text" data-target="flex-shrink" placeholder="1" class="flex-val-textbox" />
+                        </div>
+                        <div class="control__brock">
+                            <label class="controls__label controls__label--narrow">-basis</label>
+                            <input type="text" data-target="flex-basis" placeholder="auto" class="flex-val-textbox" />
+                        </div>
+                    </div>
+                </div>
+                <!--flex item2's flex-->
+                <div class="controls-container__row">
+                    <label class="controls__label mdl-cell--5-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">flex item2 flex</label>
+                    <div class="controls__control mdl-cell--7-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
+                        <div class="control__brock">
+                            <label class="controls__label controls__label--narrow">-grow</label>
+                            <input type="text" data-target="flex-grow" placeholder="0" class="flex-val-textbox flex-item-2" />
+                        </div>
+                        <div class="control__brock">
+                            <label class="controls__label controls__label--narrow">-shrink</label>
+                            <input type="text" data-target="flex-shrink" placeholder="1" class="flex-val-textbox flex-item-2" />
+                        </div>
+                        <div class="control__brock">
+                            <label class="controls__label controls__label--narrow">-basis</label>
+                            <input type="text" data-target="flex-basis" placeholder="auto" class="flex-val-textbox flex-item-2" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--flex-container-->
+            <div id="flex-container" class="flex-container direction-row">
+                <div id="flex-item-1" class="flex-item">
+                    <span>flex item1<br />order:</span>
+                    <input type="text" id="order-textbox-1" placeholder="0" class="order-textbox" />
+                </div>
+                <div id="flex-item-2" class="flex-item">
+                    <span>flex item2<br />order:</span>
+                    <input type="text" id="order-textbox-2" placeholder="0" class="order-textbox" />
+                </div>
+                <div id="flex-item-3" class="flex-item">
+                    <span>flex item3<br />order:</span>
+                    <input type="text" id="order-textbox-3" placeholder="0" class="order-textbox" />
+                </div>
+                <div id="flex-item-4" class="flex-item">
+                    <span>flex item4<br />order:</span>
+                    <input type="text" id="order-textbox-4" placeholder="0" class="order-textbox" />
+                </div>
+                <div id="flex-item-5" class="flex-item">
+                    <span>flex item5<br />order:</span>
+                    <input type="text" id="order-textbox-5" placeholder="0" class="order-textbox" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function() {
+        // 動的に追加した要素にDLを反映させるためDOMを再構築
+        componentHandler.upgradeDom();
+
+        /** 
+         * flex-container
+         * @type {jQuery}
+         */
+        var $flexContainer = $('#flex-container');
+        
+        // flex container の高さ・幅設定
+        $('.range-control').on('input change', function(){
+            var $this = $(this);
+            var targetProp = $this.data('target');
+            var $checkboxElem = $('.auto-checkbox[data-target="' + targetProp +'"]');
+            var $checkboxLabelElem = $('label[for="' + $checkboxElem.attr('id') + '"]');
+
+            if ($checkboxElem.prop('checked')) {
+                // autoチェックボックスがチェックされている場合チェックを外す
+                $checkboxLabelElem[0].MaterialCheckbox.uncheck();
+            }
+            // flex containerの対象プロパティにrangeの値を反映
+            $flexContainer.css(targetProp, $this.val());
+        });
+        
+        // flex container の高さ・幅の自動化設定
+        $('.auto-checkbox').on('change', function() {
+            var $this = $(this);
+
+            if ($this.prop('checked')) {
+                //チェックが入っている場合
+                var targetProp = $this.data('target');
+                var $rangeElem = $('.range-control[data-target="' + targetProp + '"]');
+
+                // flex containerの対象プロパティの設定値をクリア
+                $flexContainer.css(targetProp, '');
+                // 対応するrangeコントロールの値をflex containerと同期
+                $rangeElem[0].MaterialSlider.change(parseInt($flexContainer.css(targetProp)));
+            }
+        });
+
+        // flex-direction の設定
+        $('input:radio[name="flex-direction"]').on('change', function() {
+            var values = 'direction-row direction-column';
+            var thisVal = $(this).val();
+            var $heightRangeElem = $('#height-range');
+
+            // flex containerのクラスを再設定
+            $flexContainer.removeClass(values).addClass(thisVal);
+            // 高さのrangeコントロールの値をflex containerと同期
+            $heightRangeElem[0].MaterialSlider.change(parseInt($flexContainer.css('height')));
+        });
+
+        // flex-wrap, justify-content, align-items の設定
+        $('.prop-select').on('change', function() {
+            var $this = $(this);
+            // flex containerの対象のプロパティに選択値を設定
+            $flexContainer.css($this.data('target'), $this.val());
+        });
+
+        // order の設定
+        $('.order-textbox').on('change', function() {
+            var $this = $(this);
+            var thisVal = $this.val();
+            var $item = $('#flex-item-' + $this.attr('id').replace('order-textbox-', '') + ')');
+
+            if (thisVal === '') {
+                $item.css('order', '');
+            }
+            else {
+                $item.css('order', thisVal);
+            }
+        });
+
+        // flex-grow, flex-shrink, flex-basis の設定
+        $('.flex-val-textbox:not(.flex-item-2)').on('change', function() {
+            var $this = $(this);
+            var thisVal = $this.val();
+            var targetProp = $this.data('target');
+
+            // 全てのflex itemの対象プロパティに値を設定
+            $('.flex-item').css(targetProp, thisVal);
+            
+            if (thisVal !== '') {
+                // 値が設定されいる場合、flex item2のtextboxのplaceholderに値を反映
+                $('.flex-val-textbox.flex-item-2[data-target="' + targetProp + '"]').attr('placeholder', thisVal);
+            }
+            else {
+                // 値が設定されていない場合、flex item2のtextboxのplaceholderを他のflex-val-textboxと同期
+                $('.flex-val-textbox.flex-item-2[data-target="' + targetProp + '"]').attr('placeholder', $this.attr('placeholder'));
+            }
+        });
+        
+        // flex itm2 の flex-grow, flex-shrink, flex-basis の設定
+        $('.flex-item-2').on('change', function() {
+            var $this = $(this);
+            var thisVal = $this.val();
+            var targetProp = $this.data('target');
+
+            if (thisVal !== '') {
+                // 値が設定されいる場合、flex item2の対象プロパティに値を反映
+                $('#flex-item-2').css(targetProp, thisVal);
+            }
+            else {
+                // 値が設定されていない場合、flex item2の対象プロパティを他のflex itemと同期
+                $('#flex-item-2').css(targetProp, $(':not(.flex-item-2)[data-target="' + targetProp + '"]').val());
+            }
+        });
+    });
+</script>

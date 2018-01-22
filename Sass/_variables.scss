@@ -1,0 +1,94 @@
+// 変数設定ファイル
+// MDLで使用されている変数についてはコメントに「(MDL)」と記載されているので注意。
+// また、色を指定する場合にMDLの変数やカラー定義を使用する際は「unquote()」を使用すること。
+
+@charset "utf-8";
+@import "mdl/color-definitions";
+
+// ==================== 基本設定 ====================
+// imagesフォルダのパス
+$image-path:"../styles/images";
+
+// ==================== フォント関連　====================
+$preferred-font: 'メイリオ', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+$performance-font: 'メイリオ', 'Helvetica', 'Arial', sans-serif;
+$material-icon-font: 'Material Icons'; 
+$base-font-size: 62.5%;
+$default-font-size: 1.4rem;
+
+// ==================== 色関連 ====================
+// primalyカラー(MDL)
+$color-primary: $palette-indigo-500;
+$color-accent: $palette-pink-A200;
+
+$light-light-blue: rgb(122, 190, 255);
+
+// 基本文字色
+$font-color-normal: rgb(45,45,45);
+// 基本文字色(薄め)
+$font-color-pale: unquote("rgb(#{$palette-grey-800})");
+// // エラー系の文字色
+// $font-color-error: $bright-red;
+
+// リンクの文字色(MDL)
+$text-link-color: unquote("rgb(#{$color-primary})");
+
+// bodyの背景色
+$body-background-color: unquote("rgb(#{$palette-grey-100})");
+
+// 非アクティブ時の文字の透過度
+$deactivate-opacity: 0.65;
+
+// ==================== レイアウト関連 ====================
+// ヘッダー(メニューフレーム)カラー
+$header-main-color: unquote("rgb(#{$color-primary})");
+// ヘッダー(メニューフレーム)ホバーカラー
+$header-hover-color: unquote("rgb(#{$palette-indigo-800})");
+// ヘッダー(メニューフレーム)の高さ(MDL)
+$layout-header-desktop-row-height: 42px;
+// ヘッダー(メニューフレーム)の右margin(MDL)
+$layout-header-desktop-indent: 25px;
+// ヘッダー(メニューフレーム)の左margin(MDL)
+$layout-header-desktop-baseline: 25px;
+// メインメニューリンクの高さ
+$main-menu-link-height: $layout-header-desktop-row-height;
+// メインメニューリンクの高さ
+$sub-menu-link-height: 40px;
+
+// ==================== カード関連 ====================
+// カードの高さ(MDL)
+$card-height: 40px;
+// カードタイトルの文字サイズ(MDL)
+$card-title-font-size: 1.4rem;
+// カードタイトルのフォント幅(MDL)
+$card-title-text-font-weight: bold;
+// カードテキストの文字色(MDL)
+$card-text-color: $font-color-pale;
+// カードの縦のpadding(MDL)
+$card-vertical-padding: 10px;
+// カードの横のpadding(MDL)
+$card-horizontal-padding: 15px;
+
+// ==================== 入力フォーム関連 ====================
+// 入力系のfontサイズ
+$input-font-size: 1.3rem;
+// テキストボックス系のボーダーカラー
+$input-border-color: unquote("rgb(#{$palette-grey-400})");
+//onfocus時のカラー
+$input-focused-color: $light-light-blue;
+// disabled時のカラー
+$input-disabled-color: unquote("rgb(#{$palette-grey-200})");
+// disabled時のfontカラー
+$input-disabled-font-color: unquote("rgb(#{$palette-grey-500})");
+// テキストボックスのデフォルト幅
+$default-textbox-width: 250px;
+// ラジオボタンの色(MDL)
+$radio-color: unquote("rgb(#{$palette-indigo-500})");
+// ラジオボタンと文字の間隔
+$radio-padding: 5px;
+
+// ==================== アニメーション関連 ====================
+$orig-ease-in-out: cubic-bezier(.56,0,.47,1);
+
+// アコーディオンのアニメーション設定
+$accrodion-animation: 0.6s $orig-ease-in-out;

@@ -1,0 +1,519 @@
+@charset "utf-8";
+@import "variables";
+@import "mdl/material-design-lite";
+@import "mixins";
+
+html {
+    font-size: $base-font-size;
+}
+
+body {
+    height: 100%;
+    font-size: $default-font-size;
+    background-color: $body-background-color;
+}
+
+html, body {
+    line-height: normal;
+}
+
+button, input, textarea, select {
+	font-family: $preferred-font;
+	font-size: $input-font-size;
+    box-sizing: border-box;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+p, div, th, td, pre, form, h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+	padding: 0;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/*=====================================
+  Demoクラス群
+ =====================================*/
+ * {
+    box-sizing:border-box;
+}
+
+.orig-logo--demo {
+    @media screen and (max-width: 630px) {
+        display: none;
+    }
+    p {
+        font-size: 1.8rem;
+        font-weight: bold;
+    }
+}
+
+.ext-mdl-grid--demo {
+    max-width: 1000px;
+}
+
+.ext-mdl-card {
+    @extend .mdl-card;
+}
+
+.media-demo-phone {
+    .mdl-layout__header & {
+        @media screen and (max-width:  630px) {
+            padding: 0;
+            justify-content: center;
+        }
+    }
+
+    & .ext-mdl-navigation li {
+        @media screen and (max-width: $grid-tablet-breakpoint) {
+            width: 80px;
+        }
+    }
+
+    .ext-mdl-layout__header-row & {
+        @media screen and (max-width: $grid-desktop-breakpoint) {
+            justify-content: center;
+        }
+    }
+}
+
+.orig-accordion-trigger--demo {
+    height: 20px;
+    width: 20px;
+    margin: 0 0 0 auto;
+    box-sizing: border-box;
+    cursor: pointer;
+
+    &::after {
+        font-family: $material-icon-font;
+        content: "\e5ce";
+        font-size: 2.4rem;
+        position : relative ;
+        bottom: 3px;
+        color: rgba(120, 120, 120, 1);
+        transition: color 0.1s linear;
+    }
+
+    &:hover::after {
+        color: unquote("rgb(#{$color-primary})");
+    }
+
+    &.is-active::after {
+        content: "\e5cf";
+    }
+
+}
+
+.demo-accordion {
+    height: 40px;
+    transition: height $accrodion-animation;
+
+    &.is-expand {
+        height: 400px;
+    }
+}
+
+.float-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 100;
+
+    @media screen and (max-width: $grid-desktop-breakpoint) {
+        bottom: 30px;
+        right: 30px;
+    }
+}
+
+.demo-spacer {
+    width:15%;
+
+    @media screen and (max-width:  630px) {
+        display: none;
+    }
+}
+
+/*=====================================
+  Flexbox sample クラス群
+ =====================================*/
+ .flex-container {
+    display: flex;
+    width: 90%;
+    max-width: 900px;
+    margin: 0 auto;
+    border: 3px dashed #f76;
+    &.direction-row {
+        flex-direction: row;
+    }
+    &.direction-column {
+        flex-direction: column;
+    }
+    &.flex-start {
+        justify-content: flex-start;
+    }
+    &.flex-end {
+        justify-content: flex-end;
+    }
+    &.center {
+        justify-content: center;
+    }
+    &.space-between {
+        justify-content: space-between;
+    }
+    &.space-around {
+        justify-content: space-around;
+    }
+}
+
+.flex-item {
+    // width: 100px;
+    margin: 0;
+    padding: 10px;
+    font-size: 14px;
+    background-color: #fff4c3;
+    text-align: center;
+    box-sizing: border-box;
+
+    &:nth-child(2n) {
+        background-color: #d5e8d4;
+    }
+}
+
+.controls-container {
+    margin-right: 40px;
+    margin-left: 40px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+@media (max-width : $grid-desktop-breakpoint){
+    // set to 1 column
+    .controls-container {
+        margin-right: 0;
+        margin-left: 0;
+    }
+}
+
+.controls-container__row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 2px 0;
+
+    & > label {
+        color: #333;
+    }
+}
+
+.controls__label {
+    // width: 200px;
+    text-align: right;
+
+    &::after {
+        content: ":";
+    }
+}
+@media (max-width : $grid-tablet-breakpoint){
+    // set to 1 column
+    .controls__label {
+        text-align: left;
+    }
+}
+
+.controls__label--narrow {
+    @extend .controls__label;
+    width: 70px;
+}
+
+.controls__control {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 10px;
+}
+@media (max-width : $grid-tablet-breakpoint){
+    // set to 1 column
+    .controls__control {
+        flex-direction: column;
+        align-self: center;
+        flex: 0;
+        padding-left: 20%;
+    }
+}
+
+.control__brock {
+    display: flex;
+}
+
+.checkbox-label {
+    width: auto;
+}
+
+%textbox {
+    font-size: $input-font-size;
+    color: $font-color-normal;
+    border: 1px solid $input-border-color;
+    
+    &:focus {
+        border-color: $input-focused-color;
+    }
+}
+.order-textbox {
+    @extend %textbox;
+    width: 28px;
+}
+
+.flex-val-textbox {
+    @extend %textbox;
+    width: 50px;
+}
+
+.range-control {
+    width: 200px;
+}
+@media (max-width : $grid-desktop-breakpoint){
+    // set to 1 column
+    .range-control {
+        width: 160px;
+    }
+}
+
+.direction-radio {
+    margin-right: 10px;
+}
+
+.card-content-container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    text-justify: center;
+}
+
+/*=====================================
+  masonryレイアウトDemo用クラス群
+ =====================================*/
+.masonry {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 100vw;
+    max-height: 1600px;
+    min-height: 1120px;
+}
+
+.masonry__item {
+    margin: 8px;
+    position:relative;
+    min-width: 100px;
+    width: calc(33.33% - 16px);
+}
+
+@media ( max-width : $grid-desktop-breakpoint ){
+    // set to 2 column
+    .masonry{
+        height:220vw;
+        max-height: initial;
+        min-height: 1620px;
+    }
+    .masonry__item{
+        width:calc(50% - 16px);
+    }
+}
+@media ( max-width : $grid-tablet-breakpoint ){
+    // set to 1 column
+    .masonry{
+        height:auto;
+        max-height: initial;
+        min-height: initial;
+    }
+    .masonry__item{
+        width:calc(100% - 16px);
+    }
+}
+
+/*=====================================
+  MDL拡張クラス群
+  MDLのクラス継承して拡張しているクラス群
+ =====================================*/
+/* ---------- レイアウト系 ---------- */
+.mdl-layout__content {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: auto;
+    height: calc(100% - #{$layout-header-desktop-row-height});
+}
+
+.mdl-layout__header {
+    // min-width: $contet-min-width;
+
+    // MDLのメディアクエリ無効化用
+    @media screen and (max-width: $layout-screen-size-threshold) {
+        & {
+            display: flex;
+            min-height: $layout-header-desktop-row-height;
+        }
+    }
+}
+
+// ヘッダー関連
+.ext-mdl-layout__header-row {
+    @extend .mdl-layout__header-row;
+    justify-content: space-between;
+
+    // MDLのメディアクエリ無効化用
+    @media screen and (max-width: $layout-screen-size-threshold) {
+        height: $layout-header-desktop-row-height;
+        padding: 0 $layout-header-desktop-indent 0 $layout-header-desktop-baseline;
+    }
+}
+
+.ext-mdl-navigation {
+    @extend .mdl-navigation;
+    display: flex;
+    list-style-type: none;
+
+    // MDLのメディアクエリ無効化用
+    @media screen and (max-width: $layout-screen-size-threshold) {
+        height: $layout-header-desktop-row-height;
+    }
+}
+
+.ext-mdl-navigation__link {
+    @extend .mdl-navigation__link;
+    display: flex;
+    height: $main-menu-link-height;
+    line-height: 1.6rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color:  rgba(255,255,255,$deactivate-opacity);
+    opacity: 1;
+    transition: 0.1s linear;
+}
+
+.ext-mdl-layout__header-row .ext-mdl-navigation .ext-mdl-navigation__link {
+    @extend .ext-mdl-navigation__link;
+}
+
+// カードタイトル
+.ext-mdl-card__title {
+    @extend .mdl-card__title;
+    padding: $card-vertical-padding $card-horizontal-padding 4px;
+}
+
+// メインメニュー
+.orig-main-menu li {
+    position: relative;
+    width: 100px;
+
+    &.hover {
+        & > .ext-mdl-navigation__link {
+            color: rgba(255, 255, 255, 1);
+            background: $header-hover-color;
+        }
+
+        .orig-sub-menu {
+            top: 100%;
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+}
+
+// サブメニュー
+.orig-sub-menu {
+    list-style: none;
+    width: 100%;
+    position: absolute;
+    z-index: 5;
+    top: 80%;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: all .2s ease;
+}
+
+// サブメニュー内リンク
+.orig-sub-menu__link {
+    display: flex;
+    height: $sub-menu-link-height;
+    background: $header-main-color;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: rgba(255, 255, 255, $deactivate-opacity);
+    align-items: center;
+    justify-content: center;
+    transition: 0.1s linear;
+
+    &:hover {
+        background: $header-hover-color;
+        color: rgba(255, 255, 255, 1);
+    }
+}
+
+// ドロップダウンリストwrapper
+.orig-select-field {
+    box-sizing: border-box;
+    position: relative;
+    display: inline-block;
+    font-size: $input-font-size;
+    color: $font-color-normal;
+
+    // 下矢印
+    &::after {
+        content: '';
+        width: 0;
+        height: 0;
+        font-size: inherit;
+        line-height: inherit;
+        border-top: 0.6rem solid $font-color-normal;
+        border-left: 0.4rem solid transparent;
+        border-right: 0.4rem solid transparent;
+        position: absolute;
+        right: 0.5em;
+        top: 50%;
+        transform: translateY(-50%);
+        pointer-events: none;
+    }
+}
+
+// ドロップダウンリスト本体
+.orig-select-field__select {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    padding: 0;
+    margin: 0;
+    padding: 0 22px 0 3px;
+    border: 1px solid $input-border-color;
+    font-size: inherit;
+    color: inherit;
+
+    &:focus {
+        border-color: $input-focused-color;
+    }
+
+    &[disabled] {
+        color: $input-disabled-font-color;
+        background-color: $input-disabled-color;
+    }
+    //IE用
+    &[disabled]::-ms-value {
+        color: $input-disabled-font-color;
+        background-color: $input-disabled-color;
+    }
+}

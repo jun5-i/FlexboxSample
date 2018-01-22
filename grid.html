@@ -1,0 +1,26 @@
+<div class="mdl-grid ext-mdl-grid--demo">
+    <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet mdl-cell--4-col-phone" style="height:300px;">
+        <div class="ext-mdl-card__title">
+            <p class="mdl-card__title-text">Content1</p>
+        </div>
+    </div>
+    <div id="accrodionElem" class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--6-col-tablet mdl-cell--4-col-phone demo-accordion is-expand">
+        <div class="ext-mdl-card__title">
+            <p class="mdl-card__title-text">Content2</p>
+            <div class="orig-accordion-trigger--demo" data-accordion='{"targetElement": "#accrodionElem"}'></div>
+        </div>
+    </div>
+    <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--2-col mdl-cell--2-col-tablet mdl-cell--4-col-phone"  style="height:150px;">
+        <div class="ext-mdl-card__title">
+            <p class="mdl-card__title-text">Content3</p>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function() {
+        // アコーディオンのイベントの設定
+        $('.orig-accordion-trigger--demo').on('click', function(){
+            common.accordion($(this));
+        });
+    });
+</script>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">        
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="./styles/material-design-icons/iconfont/material-icons.css" rel="stylesheet">
+    <link href="./styles/style.css" rel="stylesheet">
+    <script src="./scripts/bundle.js"></script>
+    <script src="./scripts/common.js"></script>
+    <title>Flexbox Sample</title>
+</head>
+<body>
+    <div class="mdl-layout">
+        <header class="mdl-layout__header media-demo-phone">
+            <div class="ext-mdl-layout__header-row media-demo-phone">
+                <div class="orig-logo--demo"><p>Flexbox Sample</p></div>
+                <nav>
+                    <ul class="ext-mdl-navigation orig-main-menu">
+                        <li>
+                            <a id="tgt_1" class="ext-mdl-navigation__link" href="./flexboxSample1.html">
+                                <span>TOP</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a id="tgt_2" class="ext-mdl-navigation__link" href="#">
+                                <span>Menu2</span>
+                            </a>
+                            <ul class="orig-sub-menu mdl-shadow--2dp">
+                                <li>
+                                    <a class="orig-sub-menu__link" href="#">
+                                        <span>SubMenu1</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="orig-sub-menu__link" href="#">
+                                        <span>SubMenu2</span>
+                                    </a>
+                                    <a class="orig-sub-menu__link" href="#">
+                                        <span>SubMenu3</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a id="tgt_3" class="ext-mdl-navigation__link" href="#">
+                                <span>Menu3</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a id="tgt_4" class="ext-mdl-navigation__link" href="#">
+                                <span>Menu4</span>
+                            </a>
+                            <ul class="orig-sub-menu mdl-shadow--2dp">
+                                <li>
+                                    <a class="orig-sub-menu__link" href="./grid.html">
+                                        <span>Grid</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="orig-sub-menu__link" href="./masonry.html">
+                                        <span>Masonry</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="demo-spacer"></div>
+            </div>
+        </header>
+        <div class="mdl-layout__content">
+        </div>
+        <button type="button" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored float-button">+</button>
+    </div>
+    <script>
+        $(function() {
+            // デバイスによってイベントを切り替え
+            var clickEvent = window.ontouchstart !== null ? 'click' : 'touchstart';
+            // 初期表示処理
+            var $contentArea = $('.mdl-layout__content');
+            $contentArea.load('./flexboxSample1.html');
+
+            // メインメニューのli要素のイベント設定
+            $('.orig-main-menu li').on('mouseenter', function() {
+                // マウスカーソルが重なった時の処理
+                $(this).addClass('hover');
+            }).on('mouseleave', function() {
+                // マウスカーソルが離れた時の処理
+                $(this).removeClass('hover');
+            });
+
+            // メインメニューリンクのイベント設定
+            $('.ext-mdl-navigation__link').on(clickEvent, function() {
+                // クリック・タッチ開始時の処理
+                var $this = $(this);
+                var $thisParent = $this.parent('li');
+
+                // 親要素にhover用クラスを設定
+                $thisParent.addClass('hover');
+
+                if ($this.attr('href') !== '#') {
+                    // コンテンツエリア内にリンク先のファイルを表示
+                    $contentArea.load($this.attr('href'));
+                }
+                // 親要素の兄弟要素からhover用クラスを除去
+                $thisParent.siblings().removeClass('hover');
+                return false;
+
+            }).on('touchend', function(){
+                // タッチ終了時の処理
+                var $this = $(this);
+                var $thisParent = $this.parent('li');
+
+                if ($thisParent.find('.orig-sub-menu').length === 0) {
+                    // サブメニューを持たない場合、hover用クラスを除去
+                    $thisParent.removeClass('hover');
+                }
+            });
+
+            // サブメニューリンク押下時の処理
+            $('.orig-sub-menu__link').on(clickEvent, function() {
+                var $this = $(this);
+                if ($this.attr('href') !== '#') {
+                    // コンテンツエリア内にリンク先のファイルを表示
+                    $contentArea.load($this.attr('href'));
+                }
+                // メインメニュー以下の全てのli要素からhover用クラスを除去
+                $this.parents('.orig-main-menu > li').removeClass('hover');
+                return false;
+            });
+
+            // メニュー以外が押下された場合の処理
+            $(document).on(clickEvent, function(e) {
+                if (!$(e.target).closest('.orig-main-menu > li.hover').length) {
+                    // 親要素にhover中のメニューが見つからなかった場合
+                    $('.orig-main-menu > li.hover').removeClass('hover');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+@charset "utf-8";
+/*=====================================
+  mixins
+ =====================================*/
+
+/**
+ * borderdボタンを生成するmixin
+ *
+ * 高さ、文字色を指定して呼び出す。
+ * 引数を何も設定しなければデフォルトカラーのクラスが生成される。
+ */
+@mixin borderd-button($height: $bordered-button-default-height, $fontColor: $bordered-button-default-font-color) {
+    border-radius: 3px;
+    font-weight: bold;
+    height: $height;
+    background-color: $bordered-button-default-color;
+    border: 1px solid darken($bordered-button-default-color, 15%);
+    line-height: $height;
+    color: $fontColor;
+    font-size: $bordered-button-default-font-size;
+    &:hover {
+        background-color:  darken($bordered-button-default-color, 6%);
+    }
+
+    &:active {
+        background-color: darken($bordered-button-default-color, 12%);
+    }
+
+    &[disabled][disabled] {
+        background-color: $bordered-button-default-color;
+    }
+}
+
+/**
+ * カラーのborderdボタンを生成するmixin
+ *
+ * 高さ、色、文字色を指定して呼び出す。
+ * 指定された色によってボーダーの色は自動で設定される。
+ * 引数を何も設定しなければデフォルトカラーのクラスが生成される。
+ */
+@mixin borderd-button--colored($height: $bordered-button-default-height, $bgColor: $bordered-button-default-color, $fontColor: $colerd-bordered-button-default-font-color) {
+    border-radius: 3px;
+    font-weight: bold;
+    height: $height;
+    background-color: $bgColor;
+    border: 1px solid saturate($bgColor, 15%);
+    line-height: $height;
+    color: $fontColor;
+    font-size: $bordered-button-default-font-size;
+    &:hover {
+        background-color:  darken($bgColor, 8%);
+    }
+
+    &:active {
+        background-color: darken($bgColor, 12%);
+    }
+
+    &[disabled][disabled] {
+        background-color: $bgColor;
+        color: $fontColor;
+        opacity: 0.6;
+    }
+}
+
+/**
+ * icon付きボタン用のスタイルを生成するmixin
+ *
+ * 使用する material icon の文字コードを指定して呼び出す。
+ */
+@mixin iconed-button($icon, $fontSize: 1.6rem, $top: 3px, $rotate: 0deg) {
+    padding-left: 10px;
+    padding-right: 12px;
+    
+    &.ext-mdl-button--float {
+        padding-left: 16px;
+        padding-right: 18px;
+    }
+
+    &::before {
+        display: inline-block;
+        font-family: $material-icon-font;
+        content: $icon;
+        font-size: $fontSize;
+        position : relative ;
+        top: $top;
+        left: -4px;
+        line-height: normal;
+        transform: rotate($rotate);
+    }
+}
+
+/**
+ * アラートメッセージ用のスタイルを生成するmixin
+ *
+ * 色、文字色を指定して呼び出す。
+ * 指定された色によってボーダーの色は自動で設定される。
+ */
+@mixin alert-message($keyColor, $fontColor: $keyColor, $iconColor: $keyColor, $icon: "") {
+    $horizontal-padding: 12px;
+
+    @if $icon != "" {
+        $horizontal-padding: 5px;
+
+        &::before {
+            font-family: $material-icon-font;
+            content: $icon;
+            font-size: $alert-message-icon-size;
+            position : relative ;
+            top: 1px;
+            margin-right: 5px;
+            color: $iconColor;
+        }
+    }
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    min-height: $alert-message-height;
+    box-sizing: border-box;
+    border-radius: 3px;
+    margin: 5px 15px;
+    padding: 3px $horizontal-padding;
+    background-color: lighten($keyColor, 41%);
+    border: 1px solid $keyColor;
+    color: $fontColor;
+    font-size: $alert-message-font-size;
+}
