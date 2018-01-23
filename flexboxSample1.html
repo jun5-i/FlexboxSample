@@ -238,7 +238,7 @@
         $('.order-textbox').on('change', function() {
             var $this = $(this);
             var thisVal = $this.val();
-            var $item = $('#flex-item-' + $this.attr('id').replace('order-textbox-', '') + ')');
+            var $item = $($this.attr('id').replace('order-textbox-', '#flex-item-'));
 
             if (thisVal === '') {
                 $item.css('order', '');
